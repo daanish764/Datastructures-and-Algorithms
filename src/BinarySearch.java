@@ -9,7 +9,21 @@ public class BinarySearch {
         // function should return the index of the element that contains the target
         // and return -1 if the answer is not found.
 
-        return -1;
+
+        int mid = m + (n - m)/2;
+        if(m > n) {
+            return -1;
+        }
+
+        if(arr[mid] > target) {
+            return binarySearch(arr, m, mid-1, target);
+        }
+        else if(arr[mid] < target) {
+            return binarySearch(arr, mid+1, n, target);
+        }
+        else {
+            return mid;
+        }
 
     }
 
