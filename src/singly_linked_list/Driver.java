@@ -21,5 +21,12 @@ public class Driver {
         list.display();
         list.reverse();
         list.display();
+
+        // given header of singly linked list
+        // determine if the list contains a cycle.
+        // A cycle occurs when a node's next pointer is pointed to a previous node on a list creating a loop
+        // dont modify the list
+        // use O(1) space and O(n) time
+        System.out.println(list.hasCycle()); // false
     }
 }
