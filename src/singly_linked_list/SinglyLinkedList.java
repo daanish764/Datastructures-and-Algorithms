@@ -112,6 +112,9 @@ public class SinglyLinkedList {
         previous.next = current.next;
         current.next = null;
 
+    }
+
+    void reverse() {
 
     }
 
