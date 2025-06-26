@@ -130,4 +130,20 @@ public class SinglyLinkedList {
         startNode = previous;
     }
 
+    boolean hasCycle() {
+        Node slow = startNode;
+        Node fast = startNode;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
