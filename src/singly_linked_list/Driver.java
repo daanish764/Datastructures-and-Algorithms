@@ -28,5 +28,12 @@ public class Driver {
         // dont modify the list
         // use O(1) space and O(n) time
         System.out.println(list.hasCycle()); // false
+
+
+        // find the middle node of a singly linked list.
+        // if list has even number of nodes, record second node
+        // time must be O(n) and space O(1)
+        // and no extra datastructures can be used.
+        list.findMiddle();
     }
 }
