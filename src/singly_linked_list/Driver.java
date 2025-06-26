@@ -18,6 +18,8 @@ public class Driver {
         // operation should be done in place
         // time complexity must be O(n)
         // dont create new Nodes
+        list.display();
         list.reverse();
+        list.display();
     }
 }

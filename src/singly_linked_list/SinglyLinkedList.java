@@ -116,6 +116,18 @@ public class SinglyLinkedList {
 
     void reverse() {
 
+        Node previous = null;
+        Node current = startNode;
+        Node next;
+
+        while(current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        startNode = previous;
     }
 
 }
