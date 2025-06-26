@@ -146,4 +146,17 @@ public class SinglyLinkedList {
         return false;
     }
 
+    Node findMiddle() {
+        Node s = startNode;
+        Node f = startNode;
+
+        while(f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
+        }
+
+        System.out.println(s);
+        return s;
+    }
+
 }
