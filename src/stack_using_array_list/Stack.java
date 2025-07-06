@@ -32,6 +32,7 @@ public class Stack {
     int top() {
         if(arrayList.isEmpty()) {
             System.out.println("stack is empty");
+            return -1;
         }
         return arrayList.get(arrayList.size()-1);
     }
