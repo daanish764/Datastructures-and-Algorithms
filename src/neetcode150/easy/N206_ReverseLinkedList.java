@@ -30,6 +30,19 @@ public class N206_ReverseLinkedList {
         return previous;
     }
 
+    public static ListNode reverseListRecursive(ListNode head) {
+
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode newNode = reverseListRecursive(head.next);
+        head.next.next=head;
+        head.next = null;
+
+        return newNode;
+    }
+
     public static void main(String[] args) {
         ListNode n1 = new ListNode(1);
         ListNode n2 = new ListNode(2);
@@ -40,7 +53,8 @@ public class N206_ReverseLinkedList {
         n2.next = n3;
         n3.next = n4;
 
-        ListNode result = reverseList(n1);
+//        ListNode result = reverseList(n1);
+        ListNode result2 = reverseListRecursive(n1);
 
 
     }
