@@ -1,6 +1,6 @@
 package neetcode150.easy;
 
-public class N121BestTimetoBuyandSellStock {
+public class N121_BestTimetoBuyandSellStock {
 
 
 
