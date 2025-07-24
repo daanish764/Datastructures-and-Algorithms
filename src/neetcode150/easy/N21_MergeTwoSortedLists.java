@@ -53,6 +53,14 @@ public class N21_MergeTwoSortedLists {
         ll3.next = ll4;
 
         ListNode result = merge(l1,ll1);
+        print(result);
 
+    }
+
+    public static void print(ListNode head) {
+        while(head != null) {
+            System.out.print(head.val + " -> ");
+            head = head.next;
+        }
     }
 }
