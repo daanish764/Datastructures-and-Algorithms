@@ -1,7 +1,6 @@
 package neetcode150.easy;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class N104_MaximumDepthOfBinaryTree {
 
@@ -34,6 +33,33 @@ public class N104_MaximumDepthOfBinaryTree {
         return levels;
     }
 
+    // iterative depth first search
+    public static int maxDepthDFS(Node root) {
+
+        if(root == null) {return 0;}
+
+        Stack<Map.Entry<Node, Integer>> stack = new Stack<>();
+        stack.push(new AbstractMap.SimpleEntry<>(root, 1));
+
+        int depth = 0;
+        while(!stack.empty()) {
+            Map.Entry<Node, Integer> entry = stack.pop();
+            int currentDepth = (Integer) entry.getValue();
+            Node n = (Node) entry.getKey();
+
+
+            depth = Math.max(depth, currentDepth);
+
+            if(n.left != null) {
+                stack.push(new AbstractMap.SimpleEntry<>(n.left, currentDepth+1));
+            }
+            if(n.right != null) {
+                stack.push(new AbstractMap.SimpleEntry<>(n.right, currentDepth+1));
+            }
+        }
+        return depth;
+    }
+
     // recursive solution
     public static int maxDepth(Node node) {
 
@@ -51,6 +77,7 @@ public class N104_MaximumDepthOfBinaryTree {
 
         System.out.println(maxDepth(tree));
         System.out.println(maxDepthBFS(tree));
+        System.out.println(maxDepthDFS(tree));
 
     }
 }
