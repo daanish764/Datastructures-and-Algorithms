@@ -6,12 +6,12 @@ public class NumberOfClosedIslands {
 
     public static int numClosedIslands(int[][] grid) {
 
-        HashSet<String> visited = new HashSet<>();
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
 
         int result = 0;
         for(int row=0; row<grid.length; row++) {
             for(int col=0; col<grid[0].length; col++) {
-                if(grid[row][col] == 0 && !visited.contains(row + "," + col)) {
+                if(grid[row][col] == 0 && !visited[row][col]) {
                     result += dfs(row, col, grid, visited);
                 }
             }
@@ -20,15 +20,15 @@ public class NumberOfClosedIslands {
     }
 
     // return 1 if it's a closed island and 0 otherwise
-    public static int dfs(int row, int col, int[][] grid, HashSet<String> visited) {
+    public static int dfs(int row, int col, int[][] grid, boolean[][] visited) {
 
         // if we reach the edge (this means we dont reach water, then it's not a closed island
         if(row < 0 || col < 0 || row==grid.length || col==grid[0].length) { return 0; }
 
-        if(grid[row][col] == 1 || visited.contains(row+","+col)) {
+        if(grid[row][col] == 1 || visited[row][col]) {
             return 1;
         }
-        visited.add(row+","+col);
+        visited[row][col] = true;
 
         int down = dfs(row+1, col, grid, visited);
         int up = dfs(row-1, col, grid, visited);
